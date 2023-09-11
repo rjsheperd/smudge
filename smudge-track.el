@@ -284,5 +284,14 @@ Default to sortin tracks by number when listing the tracks from an album."
            (lambda (_)
              (message "Song added.")))))))))
 
+(defun smudge-track-save ()
+  "Save the track under the cursor to the user's saved tracks."
+  (interactive)
+  (let ((selected-track (tabulated-list-get-id)))
+    (smudge-api-save-track
+     selected-track
+     (lambda (_)
+       (message "Song saved.")))))
+
 (provide 'smudge-track)
 ;;; smudge-track.el ends here

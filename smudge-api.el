@@ -478,6 +478,14 @@ Call CALLBACK with results."
      nil
      callback)))
 
+(defun smudge-api-save-track (track-id callback)
+  "Add the TRACK-ID to user's saved tracks. Call CALLBACK with results."
+  (smudge-api-call-async
+   "PUT"
+   (format "/me/tracks?ids=" track-id)
+   nil
+   callback))
+
 (defun smudge-api-popularity-bar (popularity)
   "Return the popularity indicator bar proportional to POPULARITY.
 Parameter must be a number between 0 and 100."
